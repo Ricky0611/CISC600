@@ -8,7 +8,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.exp
 
-// 2.18
+// M02, Problem 2.18
+// To generate a table of velocities versus time from a given start time to a given end time at a given increment, the solution needs to:
+// 1. get valid inputs for start time, end time, and increment;
+// 2. loop through the time peroid, and calculate velocity with the given time based on the piecewise function;
+// 3. print all time stampes and their corresponding velocities in the format of "time, velocity".
+// Since float may cause representation errors in calculation, float numbers are rounded to the precision of the inputs. 
 
 class MainActivity : AppCompatActivity() {
 
