@@ -1,42 +1,38 @@
-package com.example.ruiqi.m02
+package com.example.ruiqi.cisc600
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.exp
 
-// M02, Problem 2.18
-// To generate a table of velocities versus time from a given start time to a given end time at a given increment, the solution needs to:
-// 1. get valid inputs for start time, end time, and increment;
-// 2. loop through the time peroid, and calculate velocity with the given time based on the piecewise function;
-// 3. print all time stampes and their corresponding velocities in the format of "time, velocity".
-// Since float may cause representation errors in calculation, float numbers are rounded to the precision of the inputs. 
+/**
+ * Fragment for M02 Hands-on & Drills.
+ * Problem 2.18
+ * To generate a table of velocities versus time from a given start time to a given end time at a given increment, the solution needs to:
+ * 1. get valid inputs for start time, end time, and increment;
+ * 2. loop through the time peroid, and calculate velocity with the given time based on the piecewise function;
+ * 3. print all time stampes and their corresponding velocities in the format of "time, velocity".
+ * Since float may cause representation errors in calculation, float numbers are rounded to the precision of the inputs.
+ */
+class M02Fragment : Fragment() {
 
-class MainActivity : AppCompatActivity() {
-
-    companion object{
-        lateinit var button: Button
-        lateinit var table: TextView
-        lateinit var startTimeView: EditText
-        lateinit var endTimeView: EditText
-        lateinit var increView: EditText
-        lateinit var cancelButton: ImageButton
-        var precision = 0 // precision for inputs
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        button = findViewById(R.id.button)
-        table = findViewById(R.id.table)
-        startTimeView = findViewById(R.id.startTime)
-        endTimeView = findViewById(R.id.endTime)
-        increView = findViewById(R.id.increment)
-        cancelButton = findViewById(R.id.cancelBtn)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_m02, container, false)
+        button = view.findViewById(R.id.button)
+        table = view.findViewById(R.id.table)
+        startTimeView = view.findViewById(R.id.startTime)
+        endTimeView = view.findViewById(R.id.endTime)
+        increView = view.findViewById(R.id.increment)
+        cancelButton = view.findViewById(R.id.cancelBtn)
 
         button.setOnClickListener {
             // clear data
@@ -55,6 +51,8 @@ class MainActivity : AppCompatActivity() {
             table.text = ""
             precision = 0
         }
+
+        return view
     }
 
     private fun checkInputs(startTime: String, endTime: String, increments: String): Boolean{
@@ -149,4 +147,13 @@ class MainActivity : AppCompatActivity() {
         return String.format("%.${2*precision}f", res).toFloat()
     }
 
+    companion object {
+        lateinit var button: Button
+        lateinit var table: TextView
+        lateinit var startTimeView: EditText
+        lateinit var endTimeView: EditText
+        lateinit var increView: EditText
+        lateinit var cancelButton: ImageButton
+        var precision = 0 // precision for inputs
+    }
 }

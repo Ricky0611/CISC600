@@ -1,4 +1,4 @@
-package com.example.ruiqi.m02
+package com.example.ruiqi.cisc600
 
 import org.junit.Test
 

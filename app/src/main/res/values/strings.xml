@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">M02</string>
-    <string name="problem_1">2.18 Piecewise functions are sometimes useful when the relation-ship between a dependent and an independent variable cannot be adequately  represented  by  a  single  equation.  For  example,  the   velocity of a rocket might be described by</string>
-    <string name="problem_2">Develop a well-structured function to compute v as a function of t. Then use this function to generate a table of v versus t for t = -5 to 50 at increments of 0.5.</string>
+    <string name="app_name">CISC600</string>
+    <!-- M02 Hands-on & Drills -->
+    <string name="m02_title">M02</string>
+    <string name="m02_problem_1">2.18 Piecewise functions are sometimes useful when the relation-ship between a dependent and an independent variable cannot be adequately  represented  by  a  single  equation.  For  example,  the   velocity of a rocket might be described by</string>
+    <string name="m02_problem_2">Develop a well-structured function to compute v as a function of t. Then use this function to generate a table of v versus t for t = -5 to 50 at increments of 0.5.</string>
     <string name="start">Start</string>
     <string name="loading">Processing…</string>
     <string name="start_time">Start Time</string>

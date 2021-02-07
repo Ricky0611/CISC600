@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ruiqi.m02">
+    package="com.example.ruiqi.cisc600">
 
     <application
         android:allowBackup="true"

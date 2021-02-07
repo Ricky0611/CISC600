@@ -1,4 +1,4 @@
-package com.example.ruiqi.m02
+package com.example.ruiqi.cisc600
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
