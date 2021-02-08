@@ -1,7 +1,6 @@
 package com.example.ruiqi.cisc600
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import kotlin.math.exp
 
 /**
@@ -116,7 +116,7 @@ class M02Fragment : Fragment() {
         table.text = text.toString()
     }
 
-    // calculate velocity based on the given piecewise function
+    // Calculate velocity based on the given piecewise function
     private fun getVelocity(time: Float) : Float {
         return when {
             time in 0.0..10.0 -> { // 11t^2-5t

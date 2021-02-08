@@ -18,12 +18,13 @@
 
     <ImageView
         android:id="@+id/equation"
-        android:src="@drawable/equation"
+        android:src="@drawable/problem_m02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/state1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/m02_title" />
 
     <TextView
         android:id="@+id/state2"
@@ -145,6 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tableView"/>
+        app:layout_constraintTop_toTopOf="@+id/tableView"
+        android:contentDescription="@string/cancel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
