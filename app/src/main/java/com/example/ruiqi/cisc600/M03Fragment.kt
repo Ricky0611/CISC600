@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.ruiqi.cisc600.Equations.Companion.getEstPercentRelativeError
+import com.example.ruiqi.cisc600.Equations.Companion.getNthTermOfCos
+import com.example.ruiqi.cisc600.Equations.Companion.getPercentTolerance
+import com.example.ruiqi.cisc600.Equations.Companion.getTruePercentRelativeError
+import com.example.ruiqi.cisc600.Equations.Companion.getTrueValueOfCos
 import kotlinx.android.synthetic.main.fragment_m03.view.*
 import kotlin.math.PI
 import kotlin.math.absoluteValue
-import kotlin.math.cos
-import kotlin.math.pow
 
 /**
  * Fragment for M03 Hands-on & Drills.
@@ -73,7 +76,7 @@ class M03Fragment : Fragment() {
 
     private fun solve(figure: Int) {
         // get the true value of cos(x)
-        val vt = getTrueValue(x)
+        val vt = getTrueValueOfCos(x)
         table.append("True value of cos(0.3π): $vt \n\n")
 
         // get the pre-specified percent tolerance
@@ -85,7 +88,7 @@ class M03Fragment : Fragment() {
 
         // initial the calculation
         var index = 1 // number of current terms
-        var result = getNthTerm(x, index - 1) // the estimate result
+        var result = getNthTermOfCos(x, index - 1) // the estimate result
         var oldResult = result // contain the previous result
         var et = getTruePercentRelativeError(vt, result) // true percent relative error
         var ea = Double.MAX_VALUE // approximate percent relative error, initialized as the max value of Double
@@ -95,7 +98,7 @@ class M03Fragment : Fragment() {
         do {
             index++
             oldResult = result
-            result += getNthTerm(x, index - 1)
+            result += getNthTermOfCos(x, index - 1)
             et = getTruePercentRelativeError(vt, result)
             ea = getEstPercentRelativeError(oldResult, result)
             printRow(index.toString(), result.toString(), et.toFloat().toString(), ea.toFloat().toString())
@@ -106,47 +109,4 @@ class M03Fragment : Fragment() {
         table.append(String.format("%-10s %-20s %-20s %-20s \n", term, result, et, ea))
     }
 
-    // Calculate the approximate percent relative error according to Eq.(3.5)
-    // oldValue - the previous approximation
-    // newValue - the current approximation
-    private fun getEstPercentRelativeError(oldValue: Double, newValue: Double) : Double {
-        return (newValue-oldValue) / newValue * 100
-    }
-
-    // Calculate the true percent relative error according to Eq.(3.3)
-    // vt - the true value
-    // ve - the estimate value
-    private fun getTruePercentRelativeError(vt: Double, ve: Double) : Double {
-        return (vt-ve) / vt * 100
-    }
-
-    // Get the n-th term of the given Maclaurin series expansion
-    // (-1)^n * x^(2*n) / (2*n)!
-    // x - the given parameter for cos function
-    // n - the index of the term to be calculated, starting from 0
-    private fun getNthTerm(x: Double, n: Int) : Double {
-        return (-1).toDouble().pow(n) * x.pow(2*n) / getFactorial(2*n)
-    }
-
-    // Calculate factorial of a number
-    // n - the given number to calculate n!
-    private fun getFactorial(n: Int) : Int {
-        var result = 1
-        for (i in 1..n) {
-            result *= i
-        }
-        return result
-    }
-
-    // Get the true value by using mathematical functions and constants from package kotlin.math
-    // x - the given parameter for cos function
-    private fun getTrueValue(x: Double) : Double {
-        return cos(x)
-    }
-
-    // Get the percent tolerance according to Eq.(3.7)
-    // n - number of significant figures
-    private fun getPercentTolerance(n: Int) : Double {
-        return (0.5 * 10.toDouble().pow(2 - n)) * 100
-    }
 }
