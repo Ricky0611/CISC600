@@ -10,7 +10,6 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.ruiqi.cisc600.Equations.Companion.roundNumber
-import com.example.ruiqi.cisc600.Equations.Companion.roundResult
 import kotlin.math.exp
 
 /**
@@ -111,7 +110,7 @@ class M02Fragment : Fragment() {
         var index = start
         while (index <= end) {
             index = roundNumber(precision, index)
-            val result = roundResult(precision, getVelocity(index))
+            val result = getVelocity(index)
             text.append(index).append(", ").append(result).append("\n")
             index += increment
         }

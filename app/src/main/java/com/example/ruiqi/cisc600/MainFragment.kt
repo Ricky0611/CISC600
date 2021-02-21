@@ -37,6 +37,22 @@ class MainFragment : Fragment() {
             }
         }
 
+        view.m04_1.setOnClickListener {
+            activity?.supportFragmentManager?.commit {
+                setReorderingAllowed(true)
+                replace<M041Fragment>(R.id.containerView)
+                addToBackStack(null)
+            }
+        }
+
+        view.m04_2.setOnClickListener {
+            activity?.supportFragmentManager?.commit {
+                setReorderingAllowed(true)
+                replace<M042Fragment>(R.id.containerView)
+                addToBackStack(null)
+            }
+        }
+
         return view
     }
 
