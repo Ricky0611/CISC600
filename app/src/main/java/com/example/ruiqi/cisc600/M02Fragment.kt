@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.ruiqi.cisc600.Equations.Companion.roundNumber
 import kotlin.math.exp
 
 /**
@@ -108,8 +109,8 @@ class M02Fragment : Fragment() {
         val text = StringBuilder()
         var index = start
         while (index <= end) {
-            index = roundNumber(index)
-            val result = roundResult(getVelocity(index))
+            index = roundNumber(precision, index)
+            val result = getVelocity(index)
             text.append(index).append(", ").append(result).append("\n")
             index += increment
         }
@@ -135,16 +136,6 @@ class M02Fragment : Fragment() {
                 0f
             }
         }
-    }
-
-    // To avoid representation errors, round inputs based on the precision
-    private fun roundNumber(num: Float) : Float {
-        return String.format("%.${precision}f", num).toFloat()
-    }
-
-    // To avoid representation errors, round result by twice the precision of the inputs.
-    private fun roundResult(res: Float) : Float {
-        return String.format("%.${2*precision}f", res).toFloat()
     }
 
     companion object {

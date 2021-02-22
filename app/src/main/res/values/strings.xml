@@ -14,4 +14,8 @@
     <string name="m03_title">M03</string>
     <string name="x">x (π):</string>
     <string name="significant_figures">Number of Significant Figures:</string>
+    <!-- M04 Hands-on & Drills -->
+    <string name="m04_title1">M04–1</string>
+    <string name="m04_title2">M04–2</string>
+    <string name="taylor_order">Order of Taylor Series Expansion</string>
 </resources>

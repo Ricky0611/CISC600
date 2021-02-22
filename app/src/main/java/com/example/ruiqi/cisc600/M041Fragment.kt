@@ -7,39 +7,39 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.ruiqi.cisc600.Equations.Companion.getEstPercentRelativeError
-import com.example.ruiqi.cisc600.Equations.Companion.getNthMTermOfCos
-import com.example.ruiqi.cisc600.Equations.Companion.getPercentTolerance
+import com.example.ruiqi.cisc600.Equations.Companion.getNthMTermOfArctan
 import com.example.ruiqi.cisc600.Equations.Companion.getTruePercentRelativeError
-import com.example.ruiqi.cisc600.Equations.Companion.getTrueValueOfCos
-import kotlinx.android.synthetic.main.fragment_m03.view.*
+import com.example.ruiqi.cisc600.Equations.Companion.getTrueValueOfArctangent
+import kotlinx.android.synthetic.main.fragment_m04_1.view.*
 import kotlin.math.PI
 import kotlin.math.absoluteValue
 
 /**
- * Fragment for M03 Hands-on & Drills.
- * Problem 3.10
- * To determine the number of terms necessary to approximate cos(0.3*PI), the solution needs to:
- *     1. calculate true value of the cos(0.3*PI);
- *     2. calculate pre-specified percent tolerance based on the given significant figures;
- *     3. add terms from the given Maclaurin series expansion one at a time to estimate cos(0.3*PI);
- *     4. after each new term is added, compute the true and approximate percent relative errors respectively;
- *     5. continue step 3&4 until the absolute value of the approximate error estimate fails below the percent tolerance.
+ * Fragment for M04 Hands-on & Drills part 1.
+ * Problem 4.4
+ * To determine the number of terms necessary to approximate arctan(PI/6), the solution needs to:
+ *     1. print out the first four terms;
+ *     2. calculate true value of the arctan(PI/6);
+ *     3. calculate pre-specified percent tolerance based on the given significant figures;
+ *     4. add terms from the given Maclaurin series expansion one at a time to estimate arctan(PI/6);
+ *     5. after each new term is added, compute the true and approximate percent relative errors respectively;
+ *     6. continue step 3&4 until the absolute value of the approximate error estimate fails below the percent tolerance.
  * The process and the final result will be printed out.
  * To get more accurate result, Double is used during calculation.
  * During display, all error percentage numbers are shown in Float to avoid possible representation errors.
  */
-class M03Fragment : Fragment() {
+class M041Fragment : Fragment() {
 
     companion object {
+        const val x = PI / 6
         lateinit var table: TextView // result view
-        const val x = 0.3 * PI
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view  = inflater.inflate(R.layout.fragment_m03, container, false)
+        val view = inflater.inflate(R.layout.fragment_m04_1, container, false)
 
         table = view.findViewById(R.id.table)
         view.button.setOnClickListener {
@@ -75,12 +75,15 @@ class M03Fragment : Fragment() {
     }
 
     private fun solve(figure: Int) {
-        // get the true value of cos(x)
-        val vt = getTrueValueOfCos(x)
-        table.append("True value of cos(0.3π): $vt \n\n")
+        // print out the first four terms
+        table.append("arctan x = x - (x^3)/3 + (x^5)/5 - (x^7)/7 + …\n")
+
+        // get the true value of arctan(x)
+        val vt = getTrueValueOfArctangent(x)
+        table.append("True value of arctan(π/6): $vt \n")
 
         // get the pre-specified percent tolerance
-        val es = getPercentTolerance(figure)
+        val es = Equations.getPercentTolerance(figure)
         table.append("Error criterion (%): ${es.toFloat()} \n\n")
 
         // create result table header
@@ -88,25 +91,43 @@ class M03Fragment : Fragment() {
 
         // initial the calculation
         var index = 1 // number of current terms
-        var result = getNthMTermOfCos(x, index - 1) // the estimate result
+        var result = getNthMTermOfArctan(x, index - 1) // the estimate result
         var oldResult = result // contain the previous result
         var et = getTruePercentRelativeError(vt, result) // true percent relative error
-        var ea = Double.MAX_VALUE // approximate percent relative error, initialized as the max value of Double
-        printRow(index.toString(), result.toString(), et.toFloat().toString(), "-")
+        var ea = Double.NaN // approximate percent relative error, initialized as the max value of Double
+        printRow(index.toString(), result.toString(), et.toFloat().toString(), ea.toString())
 
         // add a new term to repeat calculation while error criterion is not satisfied
         do {
             index++
             oldResult = result
-            result += getNthMTermOfCos(x, index - 1)
+            result += getNthMTermOfArctan(x, index - 1)
             et = getTruePercentRelativeError(vt, result)
             ea = getEstPercentRelativeError(oldResult, result)
             printRow(index.toString(), result.toString(), et.toFloat().toString(), ea.toFloat().toString())
         } while (ea.absoluteValue >= es)
+
+        // print analysis
+        val analysis = StringBuilder("\n").apply {
+            append("As we can see, there is some improvement in the estimate after adding each term, ")
+            append("and the initial terms contributes most of them.\n")
+            append("For this case, after we added the fourth term, the error is reduced to 0.056 percent.\n")
+            append("Consequently, although the addition of more terms will reduce the error further, the improvement becomes negligible.")
+        }.toString()
+        table.append(analysis)
     }
 
     private fun printRow(term: String, result: String, et: String, ea: String) {
-        table.append(String.format("%5s  %10s  %10s  %10s\n", term, result, et, ea))
+        val text = StringBuilder().apply {
+            append(term.padStart(5, ' '))
+            append(" ")
+            append(result.padStart(20, ' '))
+            append(" ")
+            append(et.padStart(20, ' '))
+            append(" ")
+            append(ea.padStart(20, ' '))
+            append("\n")
+        }
+        table.append(text.toString())
     }
-
 }
