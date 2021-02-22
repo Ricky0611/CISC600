@@ -76,11 +76,11 @@ class M041Fragment : Fragment() {
 
     private fun solve(figure: Int) {
         // print out the first four terms
-        table.append("arctan x = x - (x^3)/3 + (x^5)/5 - (x^7)/7 + …\n\n")
+        table.append("arctan x = x - (x^3)/3 + (x^5)/5 - (x^7)/7 + …\n")
 
         // get the true value of arctan(x)
         val vt = getTrueValueOfArctangent(x)
-        table.append("True value of arctan(π/6): $vt \n\n")
+        table.append("True value of arctan(π/6): $vt \n")
 
         // get the pre-specified percent tolerance
         val es = Equations.getPercentTolerance(figure)
@@ -106,31 +106,28 @@ class M041Fragment : Fragment() {
             ea = getEstPercentRelativeError(oldResult, result)
             printRow(index.toString(), result.toString(), et.toFloat().toString(), ea.toFloat().toString())
         } while (ea.absoluteValue >= es)
+
+        // print analysis
+        val analysis = StringBuilder("\n").apply {
+            append("As we can see, there is some improvement in the estimate after adding each term, ")
+            append("and the initial terms contributes most of them.\n")
+            append("For this case, after we added the fourth term, the error is reduced to 0.056 percent.\n")
+            append("Consequently, although the addition of more terms will reduce the error further, the improvement becomes negligible.")
+        }.toString()
+        table.append(analysis)
     }
 
     private fun printRow(term: String, result: String, et: String, ea: String) {
         val text = StringBuilder().apply {
             append(term.padStart(5, ' '))
             append(" ")
+            append(result.padStart(20, ' '))
+            append(" ")
+            append(et.padStart(20, ' '))
+            append(" ")
+            append(ea.padStart(20, ' '))
+            append("\n")
         }
-        if (result.length > 20) {
-            text.append(result.take(20))
-        } else {
-            text.append(result.padStart(20, ' '))
-        }
-        text.append(" ")
-        if (et.length > 20) {
-            text.append(et.take(20))
-        } else {
-            text.append(et.padStart(20, ' '))
-        }
-        text.append(" ")
-        if (ea.length > 20) {
-            text.append(ea.take(20))
-        } else {
-            text.append(ea.padStart(20, ' '))
-        }
-        text.append("\n")
         table.append(text.toString())
     }
 }

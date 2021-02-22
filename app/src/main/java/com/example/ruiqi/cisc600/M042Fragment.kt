@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.ruiqi.cisc600.Equations.Companion.getFactorial
-import com.example.ruiqi.cisc600.Equations.Companion.getNthDerivativeTermOfLn
-import com.example.ruiqi.cisc600.Equations.Companion.getNthDerivativeTermOfLnInString
+import com.example.ruiqi.cisc600.Equations.Companion.getNthDerivativeOfLnInString
+import com.example.ruiqi.cisc600.Equations.Companion.getNthTTermOfLn
 import com.example.ruiqi.cisc600.Equations.Companion.getTruePercentRelativeError
 import com.example.ruiqi.cisc600.Equations.Companion.getTrueValueOfLn
 import kotlinx.android.synthetic.main.fragment_m04_2.view.*
-import kotlin.math.pow
 
 /**
  * Fragment for M04 Hands-on & Drills part 2.
@@ -24,6 +22,8 @@ import kotlin.math.pow
  *     4. add the first derivative term for the first-order approximation, and calculate the true percent relative error;
  *     5. continue the process until the fourth-order approximation and its true percent relative error are calculated.
  * The process and the final result will be printed out.
+ * To get more accurate result, Double is used during calculation.
+ * During display, all error percentage numbers are shown in Float to avoid possible representation errors.
  */
 class M042Fragment : Fragment() {
 
@@ -85,36 +85,33 @@ class M042Fragment : Fragment() {
         var result = 0.0 // the estimate result
         var et = 0.0 // true percent relative error
         for (index in 0..order) {
-            val term = getNthDerivativeTermOfLnInString(index)
-            result += getNthDerivativeTermOfLn(x0.toDouble(), index) * h.pow(index) / getFactorial(index)
+            val term = getNthDerivativeOfLnInString(index)
+            result += getNthTTermOfLn(x0.toDouble(), index, h)
             et = getTruePercentRelativeError(vt, result)
-            printRow(index.toString(), term, result.toString(), et.toString())
+            printRow(index.toString(), term, result.toString(), et.toFloat().toString())
         }
+
+        // print analysis
+        val analysis = StringBuilder("\n").apply {
+            append("After added the third derivative term, the approximation got worse.\n")
+            append("This is because Taylor series expansion centered at point x = 1, which means it coverages points in (0, 2].\n")
+            append("Thus for a point that outside this region, adding terms of higher degree into the polynomial does not necessarily improve the approximation.\n")
+            append("On the contrary, the error gets larger.")
+        }.toString()
+        table.append(analysis)
     }
 
     private fun printRow(order: String, term: String, result: String, et: String) {
         val text = StringBuilder().apply {
             append(order.padStart(5, ' '))
             append(" ")
+            append(term.padStart(20, ' '))
+            append(" ")
+            append(result.padStart(20, ' '))
+            append(" ")
+            append(et.padStart(20, ' '))
+            append("\n")
         }
-        if (term.length > 20) {
-            text.append(term.take(20))
-        } else {
-            text.append(term.padStart(20, ' '))
-        }
-        text.append(" ")
-        if (result.length > 20) {
-            text.append(result.take(20))
-        } else {
-            text.append(result.padStart(20, ' '))
-        }
-        text.append(" ")
-        if (et.length > 20) {
-            text.append(et.take(20))
-        } else {
-            text.append(et.padStart(20, ' '))
-        }
-        text.append("\n")
         table.append(text.toString())
     }
 }

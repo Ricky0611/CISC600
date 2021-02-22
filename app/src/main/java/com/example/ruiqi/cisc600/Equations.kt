@@ -23,6 +23,20 @@ class Equations {
             return (0.5 * 10.toDouble().pow(2 - n))
         }
 
+        // Calculate the true percent relative error according to Eq.(3.3)
+        // vt - the true value
+        // ve - the estimate value
+        fun getTruePercentRelativeError(vt: Double, ve: Double) : Double {
+            return (vt-ve) / vt * 100
+        }
+
+        // Calculate the approximate percent relative error according to Eq.(3.5)
+        // oldValue - the previous approximation
+        // newValue - the current approximation
+        fun getEstPercentRelativeError(oldValue: Double, newValue: Double) : Double {
+            return (newValue-oldValue) / newValue * 100
+        }
+
         // Get the true value by using mathematical functions and constants from package kotlin.math
         // x - the given parameter for cos function
         fun getTrueValueOfCos(x: Double) : Double {
@@ -67,22 +81,10 @@ class Equations {
             return (-1).toDouble().pow(n) * x.pow(2*n+1) / (2*n+1)
         }
 
-        // Get the n-th derivative term of ln(x)
-        // f(x) = ln(x), f(n)(x) = (-1)^(n-1) * x^(-n) * (n-1)! (n=1,2,…)
-        // x - the given parameter for the function
-        // n - the order of the term to be calculated, starting from 0
-        fun getNthDerivativeTermOfLn(x: Double, n: Int) : Double {
-            return if (n == 0) {
-                ln(x)
-            } else {
-                (-1).toDouble().pow(n-1) * x.pow(-n) * getFactorial(n-1)
-            }
-        }
-
-        // Get the n-th derivative term of ln(x) in String format
+        // Get the n-th derivative of ln(x) in String format
         // f(x) = ln(x), f(n)(x) = (-1)^(n-1) * x^(-n) * (n-1)! (n=1,2,…)
         // n - the order of the term to be calculated, starting from 0
-        fun getNthDerivativeTermOfLnInString(n: Int) : String {
+        fun getNthDerivativeOfLnInString(n: Int) : String {
             return if (n == 0) {
                 "ln(x)"
             } else if (n % 2 == 0) { // even
@@ -103,18 +105,25 @@ class Equations {
             }
         }
 
-        // Calculate the true percent relative error according to Eq.(3.3)
-        // vt - the true value
-        // ve - the estimate value
-        fun getTruePercentRelativeError(vt: Double, ve: Double) : Double {
-            return (vt-ve) / vt * 100
+        // Get the n-th derivative of ln(x)
+        // f(x) = ln(x), f(n)(x) = (-1)^(n-1) * x^(-n) * (n-1)! (n=1,2,…)
+        // x - the given parameter for the function
+        // n - the order of the term to be calculated, starting from 0
+        fun getNthDerivativeOfLn(x: Double, n: Int) : Double {
+            return if (n == 0) {
+                ln(x)
+            } else {
+                (-1).toDouble().pow(n-1) * x.pow(-n) * getFactorial(n-1)
+            }
         }
 
-        // Calculate the approximate percent relative error according to Eq.(3.5)
-        // oldValue - the previous approximation
-        // newValue - the current approximation
-        fun getEstPercentRelativeError(oldValue: Double, newValue: Double) : Double {
-            return (newValue-oldValue) / newValue * 100
+        // Get the n-th term of the Taylor series expansion for ln(x)
+        // f(n)(x) * h^n / n!
+        // x - the given parameter for ln function
+        // n - the order of the term to be calculated, starting from 0
+        // h - the step size
+        fun getNthTTermOfLn(x: Double, n: Int, h: Double) : Double {
+            return getNthDerivativeOfLn(x, n) * h.pow(n) / getFactorial(n)
         }
     }
 }
