@@ -1,9 +1,6 @@
 package com.example.ruiqi.cisc600
 
-import kotlin.math.atan
-import kotlin.math.cos
-import kotlin.math.ln
-import kotlin.math.pow
+import kotlin.math.*
 
 class Equations {
     companion object {
@@ -35,6 +32,13 @@ class Equations {
         // newValue - the current approximation
         fun getEstPercentRelativeError(oldValue: Double, newValue: Double) : Double {
             return (newValue-oldValue) / newValue * 100
+        }
+
+        // Calculate the approximate percent relative error according to Eq.(5.3) for Bracketing Methods
+        // xl - the lower bound of the interval
+        // xu - the upper bound of the interval
+        fun getEstPercentRelativeErrorForBracket(xl: Double, xu: Double) : Double {
+            return ((xu-xl) / (xu+xl) * 100).absoluteValue
         }
 
         // Get the true value by using mathematical functions and constants from package kotlin.math
