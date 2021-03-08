@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".M05Fragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/problem_m05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/m05_title" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graphView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:seriesData="line"
+        android:visibility="invisible"/>
+
+    <ScrollView
+        android:id="@+id/tableView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/graphView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="vertical"
+        android:fillViewport="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:fadeScrollbars="false">
+
+        <TextView
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

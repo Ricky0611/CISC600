@@ -53,6 +53,14 @@ class MainFragment : Fragment() {
             }
         }
 
+        view.m05.setOnClickListener {
+            activity?.supportFragmentManager?.commit {
+                setReorderingAllowed(true)
+                replace<M05Fragment>(R.id.containerView)
+                addToBackStack(null)
+            }
+        }
+
         return view
     }
 
