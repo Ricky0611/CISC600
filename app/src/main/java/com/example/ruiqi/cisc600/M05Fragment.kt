@@ -15,7 +15,7 @@ import kotlin.math.absoluteValue
 import kotlin.math.pow
 
 /**
- * Fragment for M05 Hands-on & Drills part 1.
+ * Fragment for M05 Hands-on & Drills.
  * Problem 5.3
  * To determine the real root of f(x) = -25 + 82x - 90x^2 + 44x^3 - 8x^4 + 0.7x^5, the solution needs to :
  *     1. import GraphView library and add GraphView to the layout;

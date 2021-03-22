@@ -20,4 +20,7 @@
     <string name="taylor_order">Order of Taylor Series Expansion</string>
     <!-- M05 Hands-on & Drills -->
     <string name="m05_title">M05</string>
+    <!-- M06 Hands-on & Drills -->
+    <string name="m06_title">M06</string>
+    <string name="analysis">Analysis</string>
 </resources>

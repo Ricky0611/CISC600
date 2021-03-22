@@ -31,7 +31,7 @@ class Equations {
         // oldValue - the previous approximation
         // newValue - the current approximation
         fun getEstPercentRelativeError(oldValue: Double, newValue: Double) : Double {
-            return (newValue-oldValue) / newValue * 100
+            return ((newValue-oldValue) / newValue * 100).absoluteValue
         }
 
         // Calculate the approximate percent relative error according to Eq.(5.3) for Bracketing Methods
