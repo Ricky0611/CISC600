@@ -57,4 +57,14 @@
         android:layout_gravity="center"
         android:text="@string/m06_title" />
 
+
+
+
+    <Button
+        android:id="@+id/project"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/project_title" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

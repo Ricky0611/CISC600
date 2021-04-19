@@ -17,7 +17,7 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
- * Fragment for M05 Hands-on & Drills.
+ * Fragment for M06 Hands-on & Drills.
  * To find all real or complex roots of given polynomials:
  *     1. plot the functions to choose root guesses appropriately;
  *     2. apply any appropriate simplifications;
