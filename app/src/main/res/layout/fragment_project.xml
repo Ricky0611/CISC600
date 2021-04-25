@@ -52,6 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/question4"
             android:text="Graphical Method"
             android:textStyle="bold"
+            android:textColor="@android:color/black"
             android:textAlignment="center"/>
 
         <com.jjoe64.graphview.GraphView
@@ -68,6 +69,112 @@
             app:layout_constraintTop_toBottomOf="@+id/graphView"/>
 
         <!-- Bisection Method -->
+        <TextView
+            android:id="@+id/bisectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/graphText"
+            android:layout_marginTop="10dp"
+            android:text="Bisection Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/bisectionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/bisectionTitle"/>
+
+        <!-- False-Position Method -->
+        <TextView
+            android:id="@+id/falsePosTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/bisectionText"
+            android:layout_marginTop="10dp"
+            android:text="False-Position Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/falsePosText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/falsePosTitle"/>
+
+        <!-- Fixed-Position Method -->
+        <TextView
+            android:id="@+id/fixPtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/falsePosText"
+            android:layout_marginTop="10dp"
+            android:text="Fixed-Position Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/fixPtText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/fixPtTitle"/>
+
+        <!-- Newton-Raphson Method -->
+        <TextView
+            android:id="@+id/newRapTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/fixPtText"
+            android:layout_marginTop="10dp"
+            android:text="Newton-Raphson Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/newRapText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/newRapTitle"/>
+
+        <!-- Secant Method -->
+        <TextView
+            android:id="@+id/secantTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/newRapText"
+            android:layout_marginTop="10dp"
+            android:text="Secant Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/secantText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/secantTitle"/>
+
+        <!-- Brent's Method -->
+        <TextView
+            android:id="@+id/brentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/secantText"
+            android:layout_marginTop="10dp"
+            android:text="Brent's Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/brentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/brentTitle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
