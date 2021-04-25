@@ -29,3 +29,6 @@ For each of the following polynomials:
 2. f(x) = 2x^4 + 6x^2 + 8  
 3. f(x) = -2 + 6.2x - 4x^2 + 0.7x^3  
 4. f(x) = x^4 - 2x^3 + 6x^2 - 2x + 5  
+  
+Project  
+Solve problem 8.2 with all bracketing and open methods mentioned in Chapter 5&6.
