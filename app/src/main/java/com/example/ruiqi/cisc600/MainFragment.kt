@@ -69,6 +69,14 @@ class MainFragment : Fragment() {
             }
         }
 
+        view.project.setOnClickListener {
+            activity?.supportFragmentManager?.commit {
+                setReorderingAllowed(true)
+                replace<ProjectFragment>(R.id.containerView)
+                addToBackStack(null)
+            }
+        }
+
         return view
     }
 

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    tools:context=".ProjectFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Problem 8.2 -->
+        <ImageView
+            android:id="@+id/question1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/problem_project_1"/>
+
+        <ImageView
+            android:id="@+id/question2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toBottomOf="@+id/question1"
+            android:src="@drawable/problem_project_2"/>
+
+        <ImageView
+            android:id="@+id/question3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toBottomOf="@+id/question2"
+            android:src="@drawable/problem_project_3"/>
+
+        <ImageView
+            android:id="@+id/question4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toBottomOf="@+id/question3"
+            android:src="@drawable/problem_project_4"/>
+
+        <!-- Graphical Method -->
+        <TextView
+            android:id="@+id/graphTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/question4"
+            android:text="Graphical Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/graphView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:layout_constraintTop_toBottomOf="@+id/graphTitle"
+            app:seriesData="line"/>
+
+        <TextView
+            android:id="@+id/graphText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/graphView"/>
+
+        <!-- Bisection Method -->
+        <TextView
+            android:id="@+id/bisectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/graphText"
+            android:layout_marginTop="10dp"
+            android:text="Bisection Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/bisectionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/bisectionTitle"/>
+
+        <!-- False-Position Method -->
+        <TextView
+            android:id="@+id/falsePosTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/bisectionText"
+            android:layout_marginTop="10dp"
+            android:text="False-Position Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/falsePosText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/falsePosTitle"/>
+
+        <!-- Fixed-Position Method -->
+        <TextView
+            android:id="@+id/fixPtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/falsePosText"
+            android:layout_marginTop="10dp"
+            android:text="Fixed-Position Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/fixPtText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/fixPtTitle"/>
+
+        <!-- Newton-Raphson Method -->
+        <TextView
+            android:id="@+id/newRapTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/fixPtText"
+            android:layout_marginTop="10dp"
+            android:text="Newton-Raphson Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/newRapText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/newRapTitle"/>
+
+        <!-- Secant Method -->
+        <TextView
+            android:id="@+id/secantTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/newRapText"
+            android:layout_marginTop="10dp"
+            android:text="Secant Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/secantText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/secantTitle"/>
+
+        <!-- Brent's Method -->
+        <TextView
+            android:id="@+id/brentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/secantText"
+            android:layout_marginTop="10dp"
+            android:text="Brent's Method"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/brentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/brentTitle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

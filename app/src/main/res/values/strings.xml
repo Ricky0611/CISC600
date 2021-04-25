@@ -23,4 +23,6 @@
     <!-- M06 Hands-on & Drills -->
     <string name="m06_title">M06</string>
     <string name="analysis">Analysis</string>
+    <!-- Project -->
+    <string name="project_title">Project</string>
 </resources>
