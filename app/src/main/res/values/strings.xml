@@ -3,6 +3,8 @@
     <string name="start">Start</string>
     <string name="loading">Processing…</string>
     <string name="cancel">Cancel</string>
+    <!-- CISC 600 -->
+    <string name="course_title1">CISC 600</string>
     <!-- M02 Hands-on & Drills -->
     <string name="m02_title">M02</string>
     <string name="m02_problem_1">2.18 Piecewise functions are sometimes useful when the relation-ship between a dependent and an independent variable cannot be adequately  represented  by  a  single  equation.  For  example,  the   velocity of a rocket might be described by</string>
@@ -25,4 +27,8 @@
     <string name="analysis">Analysis</string>
     <!-- Project -->
     <string name="project_title">Project</string>
+    <!-- CISC 601 -->
+    <string name="course_title2">CISC 601</string>
+    <!-- M13 Hands-on & Drills -->
+    <string name="m13_title">M13</string>
 </resources>

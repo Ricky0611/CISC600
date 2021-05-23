@@ -6,6 +6,17 @@
     android:orientation="vertical"
     tools:context="com.example.ruiqi.cisc600.MainFragment">
 
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/course_title1"
+        android:layout_margin="5dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:background="@color/colorAccent"/>
+
     <Button
         android:id="@+id/m02"
         android:layout_width="wrap_content"
@@ -49,7 +60,6 @@
         android:layout_gravity="center"
         android:text="@string/m05_title" />
 
-
     <Button
         android:id="@+id/m06"
         android:layout_width="wrap_content"
@@ -57,14 +67,29 @@
         android:layout_gravity="center"
         android:text="@string/m06_title" />
 
-
-
-
     <Button
         android:id="@+id/project"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/project_title" />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/course_title2"
+        android:layout_margin="5dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:background="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/m13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/m13_title" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

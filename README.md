@@ -29,3 +29,15 @@ For each of the following polynomials:
 2. f(x) = 2x^4 + 6x^2 + 8  
 3. f(x) = -2 + 6.2x - 4x^2 + 0.7x^3  
 4. f(x) = x^4 - 2x^3 + 6x^2 - 2x + 5  
+  
+Project  
+Solve problem 8.2 with all bracketing and open methods mentioned in Chapter 5&6.  
+  
+# CISC601  
+Harrisburg University of Science and Technology
+2020-2021 Academic Year - Summer
+CISC 601-90-O Scientific Computing II  
+  
+M13 Hands-on & Drills 
+Solve any one (1) even problems from Chapter 13 {13.2,4,6,8,10,12,14,16,18,20,22}, pages 368-369.  
+13.8 selected
