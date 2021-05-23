@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
+    android:padding="5dp"
     tools:context=".ProjectFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout

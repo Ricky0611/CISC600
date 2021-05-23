@@ -70,9 +70,9 @@ class ProjectFragment : Fragment() {
         val eps = 2.22044604925031E-16 // machine epsilon
         var tol = es // tolerance
         // define search interval (a, b, c)
-        var a = 0.1 // assign lower bound
-        var b = 0.5 // assign upper bound
-        var c = a
+        var a = 0.1 // the previous value of b, produce the secant with b
+        var b = 0.5 // the best zero
+        var c = a // bracket the sign change with b, and provide the midepoint
         var fa = f(a) // function value at a
         var fb = f(b) // function value at b
         var fc = fa // function value at c
@@ -81,7 +81,7 @@ class ProjectFragment : Fragment() {
         var iter = 0
         printBrentRow("iteration", "a", "b", "c", "d", "e", "fa", "fb", "fc")
         while (true) {
-            printBrentRow(iter.toString(), a.toString(), b.toString(), c.toString(), d.toString(), e.toString(), fa.toString(), fb.toString(), fc.toString())
+            //printBrentRow(iter.toString(), a.toString(), b.toString(), c.toString(), d.toString(), e.toString(), fa.toString(), fb.toString(), fc.toString())
             if (fb == 0.0) { // find root
                 break
             }
@@ -101,7 +101,7 @@ class ProjectFragment : Fragment() {
             }
             printBrentRow(iter.toString(), a.toString(), b.toString(), c.toString(), d.toString(), e.toString(), fa.toString(), fb.toString(), fc.toString())
             iter++
-            val m = (a - b) / 2
+            val m = (a - b) / 2 // midpoint
             tol = 2 * eps * max(b.absoluteValue, 1.0)
             if (m.absoluteValue <= tol || fb == 0.0) { // find (approximate) root
                 break
