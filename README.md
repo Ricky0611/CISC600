@@ -34,7 +34,7 @@ Project
 Solve problem 8.2 with all bracketing and open methods mentioned in Chapter 5&6.  
   
 # CISC601  
-Harrisburg University of Science and Technology
+Harrisburg University of Science and Technology  
 2020-2021 Academic Year - Summer  
 CISC 601-90-O Scientific Computing II  
   
